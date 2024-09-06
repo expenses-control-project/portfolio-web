@@ -3,6 +3,7 @@ import { Button, Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo_ec.svg";
+import ThemeButton from "../ThemeButton/ThemeButton";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,25 +41,26 @@ function Header() {
   return (
     <header
       className={` fixed inset-x-0 top-0 z-20 transition-all duration-100 ease-in-out 
-      ${isScrolled ? "bg-slate-900 shadow-lg" : "bg-transparent shadow-none"}`}
+      ${isScrolled ? "bg-slate-100 dark:bg-slate-900 shadow-lg" : "bg-transparent shadow-none"}`}
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <img
-              className="h-14 w-auto"
+              className="h-10 w-auto"
               src={logo}
               alt="logo expenses control"
             />
           </a>
         </div>
         <div className="flex lg:hidden">
+          <ThemeButton />
           <button
             type="button"
-            className="m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-900 dark:text-white"
+            className="m-2.5 inline-flex items-center justify-center rounded-md text-slate-900 dark:text-white"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
@@ -99,6 +101,7 @@ function Header() {
           </a>
         </ul>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center ">
+          <ThemeButton />
           <Link
             to="/users/login"
             className="text-sm font-semibold leading-6 dark:text-white text-gray-900"
