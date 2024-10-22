@@ -41,7 +41,11 @@ function Header() {
   return (
     <header
       className={` fixed inset-x-0 top-0 z-20 transition-all duration-100 ease-in-out 
-      ${isScrolled ? "bg-slate-100 dark:bg-slate-900 shadow-lg" : "bg-transparent shadow-none"}`}
+      ${
+        isScrolled
+          ? "bg-slate-100 dark:bg-slate-900 shadow-lg"
+          : "bg-transparent shadow-none"
+      }`}
     >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
@@ -102,14 +106,13 @@ function Header() {
         </ul>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center ">
           <ThemeButton />
-          <Link
-            to="/users/login"
-            className="text-sm font-semibold leading-6 dark:text-white text-gray-900"
+          <a
+            href="https://app-expenses-control.web.app/users/login"
+            target="__blank"
+            className="inline-flex items-center gap-2 rounded-md bg-cyan-500 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-cyan-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
           >
-            <Button className="inline-flex items-center gap-2 rounded-md bg-cyan-500 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-cyan-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
-              Acceder al sistema<span aria-hidden="true">&rarr;</span>
-            </Button>
-          </Link>
+            Acceder al sistema<span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
       </nav>
       <Dialog
